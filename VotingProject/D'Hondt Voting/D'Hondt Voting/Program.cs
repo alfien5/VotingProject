@@ -6,7 +6,7 @@ namespace D_Hondt_Voting
     {
         static void Main(string[] args)
         {
-            Console.Writeline("Pog Champ")
+            Console.Writeline("Hello World! Alfie has not got a big brain")
         }
     }
 }
