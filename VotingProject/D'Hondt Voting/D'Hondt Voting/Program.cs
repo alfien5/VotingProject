@@ -6,8 +6,9 @@ namespace D_Hondt_Voting
     {
         static void Main(string[] args)
         {
-            Console.Writeline("Hello World! Alfie is not pog. ")
+            Console.Writeline("Hello World! Alfie has not got a big brain")
             Console.Writeline("Damn.")
+            Console.Writeline("Alfie's a bad team leader")
         }
     }
 }
