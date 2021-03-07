@@ -4,16 +4,18 @@ using System.Collections.Generic;
 
 public class Get_Votes
 {
-    public static void Main()
+    public static List<string> parties = new List<string>();
+    public static List<int> party_votes = new List<int>();
+    public static List<string> seats = new List<string>();// Variables for the lines of the text file, a counter and a couple lists
+
+    public static void ReadFiles()
     {
         string fileName = @"C:\Users\newto\Desktop\VotingProject\Votes.txt"; //assigns the text file to a string
 
         using (StreamReader reader = new StreamReader(fileName)) // Opens an instance of the file
         {
             string line;
-            int counter = 0;
-            List<string> parties = new List<string>();
-            List<int> party_votes = new List<int>(); // Variables for the lines of the text file, a counter and a couple lists
+            int counter = 0;          
 
             while ((line = reader.ReadLine()) != null) // Do while the line of the text file is not empty
             {
@@ -41,6 +43,58 @@ public class Get_Votes
 
                 counter += 1; // Makes sure the next line of the file is read
             }
+
+        }
+    }
+
+    public class Party
+    {
+        //fields
+        public string name;
+        public int numVotes;
+        public int numWins;
+
+        //constructor
+        public Party(string partyName, int partyNumVotes, int partyNumSeats)
+        {
+            name = partyName;
+            numVotes = partyNumVotes;
+            for (int i = 1; i != partyNumSeats + 1; i++)
+            {
+                seats.Add("SEAT" + i);
+            }
+            numWins = 0;
+        }
+
+        //methods
+        public void SeatWon()
+        {
+            numWins++;
+            seats.RemoveAt(0);
+        }
+
+        //!!! FOR TESTING
+        public void Check()
+        {
+            Console.WriteLine("Party's name = " + name + " | Votes = " + numVotes);
+            for (int i = 0; i < seats.Count; i++)
+                Console.WriteLine(seats[i]);
+        }
+        public static void Main(string[] args)
+        {
+            //!!! FOR TESTING
+            Party party = new Party("BB", 69, 5);
+            party.SeatWon();
+            party.Check();
+
+            Get_Votes.ReadFiles();
+
+            //!!! Use TEAM LEADER's lists to create the parties here
+            // Testing for list access - struggling
+            for (int i = 0; i < parties.Count; i++)
+                Console.WriteLine(parties[i]);
+            for (int i = 0; i < party_votes.Count; i++)
+                Console.WriteLine(party_votes[i]);
 
         }
     }
