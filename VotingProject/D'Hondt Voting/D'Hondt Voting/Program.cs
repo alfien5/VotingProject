@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Get_Votes
 {
@@ -47,6 +48,7 @@ public class Get_Votes
         //fields
         public string name;
         public int numVotes;
+        public int numVotesMath;
         public int numWins;
         public List<string> seatsleft = new List<string>();
 
@@ -55,6 +57,7 @@ public class Get_Votes
         {
             name = partyName;
             numVotes = partyNumVotes;
+            numVotesMath = partyNumVotes;
             for (int i = 1; i != partyNumSeats + 1; i++)
             {
                 seatsleft.Add("SEAT" + i);
@@ -99,6 +102,48 @@ public class Get_Votes
             {
                 partyObjects[i].Check();
             }
+
+
+
+
+            //Console.WriteLine("Hello World");
+
+            int roundCount = 1;
+
+            while (roundCount < 6)
+            {
+
+                // Create new empty list
+
+                List<int> votes = new List<int>();
+
+                // Calculate current votes and add them to list
+                foreach (var party in partyObjects.Values)
+                {
+                    party.numVotesMath = party.numVotes / (1 + party.numWins);
+                    votes.Add(party.numVotesMath);
+                }
+
+                //Find largest vote
+                int largestVote = votes.Max();
+
+                //Party which corresponds to the largest vote has their wins increase by 1
+
+                foreach (var party in partyObjects.Values)
+                {
+                    if (party.numVotesMath == largestVote)
+                    {
+                        party.numWins = party.numWins + 1;
+                        Console.WriteLine(party.name);
+                    }
+                }
+
+                Console.WriteLine(roundCount);
+                Console.WriteLine(largestVote);
+                roundCount = roundCount + 1;
+            }
+
+            Console.ReadKey();
         }
     }
 }
