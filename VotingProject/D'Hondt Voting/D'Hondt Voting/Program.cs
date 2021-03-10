@@ -64,7 +64,6 @@ public class Get_Votes
 
     public static void Readresults()
     {
-        
         string results = @"testresults.txt";
         using (StreamReader reader = new StreamReader(results)) 
         {
@@ -80,10 +79,7 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             BPseats += 1;
-
                         }
-                        
-                        
                     }
                                         
                 }
@@ -94,10 +90,7 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             LDseats += 1;
-
                         }
-
-
                     }
                     
                 }
@@ -108,10 +101,7 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             LAseats += 1;
-
                         }
-
-
                     }
                     
                 }
@@ -122,10 +112,7 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             COseats += 1;
-
                         }
-
-
                     }
 
                 }
@@ -136,10 +123,7 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             GRseats += 1;
-
                         }
-
-
                     }
 
                 }
@@ -150,12 +134,8 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             UKseats += 1;
-
                         }
-
-
                     }
-
                 }
                 if (counte == 7)
                 {
@@ -164,12 +144,8 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             CUseats += 1;
-
                         }
-
-
                     }
-
                 }
                 if (counte == 8)
                 {
@@ -178,12 +154,8 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             INseats += 1;
-
                         }
-
-
                     }
-
                 }
                 if (counte == 9)
                 {
@@ -192,25 +164,21 @@ public class Get_Votes
                         if (ch == ',')
                         {
                             IDseats += 1;
-
                         }
-
-
                     }
-
                 }
 
                 if (BPseats == BrexitPartyWins && LDseats == LibDemWins && LAseats == LabourWins && COseats == ConWins && GRseats == GreenWins && UKseats == UKIPWins && CUseats == ChangeUKWins && INseats == IndNetWins && IDseats == IndWins)
                 {
-                    Console.WriteLine("All Confirmed");
+                    Console.WriteLine("All results are correct");
                 }
-
-
+                else
+                {
+                    Console.WriteLine("One or more of the results is incorrect");
+                }
                 counte += 1;
             }
-
-        }
-        
+        }   
     }
     public class Party
     {
