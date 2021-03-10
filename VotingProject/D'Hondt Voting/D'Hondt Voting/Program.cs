@@ -80,8 +80,7 @@ public class Get_Votes
                         {
                             BPseats += 1;
                         }
-                    }
-                                        
+                    }                        
                 }
                 if (counte == 2)
                 {
@@ -92,7 +91,6 @@ public class Get_Votes
                             LDseats += 1;
                         }
                     }
-                    
                 }
                 if (counte == 3)
                 {
@@ -103,7 +101,6 @@ public class Get_Votes
                             LAseats += 1;
                         }
                     }
-                    
                 }
                 if (counte == 4)
                 {
@@ -114,7 +111,6 @@ public class Get_Votes
                             COseats += 1;
                         }
                     }
-
                 }
                 if (counte == 5)
                 {
@@ -125,7 +121,6 @@ public class Get_Votes
                             GRseats += 1;
                         }
                     }
-
                 }
                 if (counte == 6)
                 {
