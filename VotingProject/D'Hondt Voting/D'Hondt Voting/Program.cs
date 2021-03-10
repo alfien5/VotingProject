@@ -168,6 +168,7 @@ public class Get_Votes
                     }
                 }
 
+                //If the results given by the D'Hondt program match the results of the text file, everything is correct.
                 if (BPseats == BrexitPartyWins && LDseats == LibDemWins && LAseats == LabourWins && COseats == ConWins && GRseats == GreenWins && UKseats == UKIPWins && CUseats == ChangeUKWins && INseats == IndNetWins && IDseats == IndWins)
                 {
                     Console.WriteLine("All results are correct");
