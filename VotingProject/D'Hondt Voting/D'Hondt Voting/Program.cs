@@ -113,6 +113,12 @@ public class Get_Votes
             int BrexitPartyWins = 0;
             int LibDemWins = 0;
             int LabourWins = 0;
+            int ConWins = 0;
+            int GreenWins = 0;
+            int UKIPWins = 0;
+            int ChangeUKWins = 0;
+            int IndNetWins = 0;
+            int IndWins = 0;
 
             while (roundCount < 6)
             {
@@ -154,6 +160,36 @@ public class Get_Votes
                         {
                             LabourWins += 1;
                         }
+
+                        if (party.name == "Conservative")
+                        {
+                            ConWins += 1;
+                        }
+
+                        if (party.name == "Green")
+                        {
+                            GreenWins += 1;
+                        }
+
+                        if (party.name == "UKIP")
+                        {
+                            UKIPWins += 1;
+                        }
+
+                        if (party.name == "Change UK")
+                        {
+                            ChangeUKWins += 1;
+                        }
+
+                        if (party.name == "Independent Network")
+                        {
+                            IndNetWins += 1;
+                        }
+
+                        if (party.name == "Independent")
+                        {
+                            IndWins += 1;
+                        }
                     }
                 }
 
@@ -166,8 +202,12 @@ public class Get_Votes
             Console.WriteLine("Brexit Party Wins: " + BrexitPartyWins);
             Console.WriteLine("Liberal Democrat Party Wins: " + LibDemWins);
             Console.WriteLine("Labour Party Wins: " + LabourWins);
-
-
+            Console.WriteLine("Conservative Party Wins: " + ConWins);
+            Console.WriteLine("Green Party Wins: " + GreenWins);
+            Console.WriteLine("UKIP Party Wins: " + UKIPWins);
+            Console.WriteLine("Change UK Party Wins: " + ChangeUKWins);
+            Console.WriteLine("Independent Network Party Wins: " + IndNetWins);
+            Console.WriteLine("Independent Party Wins: " + IndWins);
         }
     }
 }
