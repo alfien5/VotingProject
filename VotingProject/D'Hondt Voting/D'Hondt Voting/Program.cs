@@ -73,15 +73,16 @@ public class Get_Votes
         }
 
         //!!! FOR TESTING
+
         public void Check()
         {
             Console.WriteLine("Party's name = " + name);
-            Console.WriteLine("Votes = " + numVotes);
-            Console.WriteLine("Wins = " + numWins);
-            for (int i = 0; i < seatsleft.Count; i++)
-                Console.WriteLine(seatsleft[i]);
+            Console.WriteLine("Total Votes = " + numVotes);
+            Console.WriteLine(" ");
         }
+
         public Party[] partyObjects;
+
         public static void Main(string[] args)
         {
             Get_Votes.ReadFiles();
@@ -102,13 +103,16 @@ public class Get_Votes
             {
                 partyObjects[i].Check();
             }
+            Console.WriteLine("////////////////////////////////////////////");
+            Console.WriteLine(" ");
 
 
-
-
-            //Console.WriteLine("Hello World");
+            // jack's code from here
 
             int roundCount = 1;
+            int BrexitPartyWins = 0;
+            int LibDemWins = 0;
+            int LabourWins = 0;
 
             while (roundCount < 6)
             {
@@ -134,16 +138,36 @@ public class Get_Votes
                     if (party.numVotesMath == largestVote)
                     {
                         party.numWins = party.numWins + 1;
-                        Console.WriteLine(party.name);
+                        Console.WriteLine("Seat Winner: " + party.name);
+
+                        if (party.name == "Brexit Party")
+                        {
+                            BrexitPartyWins += 1;
+                        }
+
+                        if (party.name == "Liberal Democrats")
+                        {
+                            LibDemWins += 1;
+                        }
+
+                        if (party.name == "Labour")
+                        {
+                            LabourWins += 1;
+                        }
                     }
                 }
 
-                Console.WriteLine(roundCount);
-                Console.WriteLine(largestVote);
+                Console.WriteLine("Seat Number: " + roundCount);
+                Console.WriteLine("Winning Vote Numbers: " + largestVote);
+                Console.WriteLine(" ");
                 roundCount = roundCount + 1;
             }
 
-            Console.ReadKey();
+            Console.WriteLine("Brexit Party Wins: " + BrexitPartyWins);
+            Console.WriteLine("Liberal Democrat Party Wins: " + LibDemWins);
+            Console.WriteLine("Labour Party Wins: " + LabourWins);
+
+
         }
     }
 }
