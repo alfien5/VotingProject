@@ -8,6 +8,15 @@ public class Get_Votes
     public static List<string> parties = new List<string>();
     public static List<int> party_votes = new List<int>(); // Variables for the lines of the text file, a counter and a couple lists
 
+    public static int BrexitPartyWins = 0;
+    public static int LibDemWins = 0;
+    public static int LabourWins = 0;
+    public static int ConWins = 0;
+    public static int GreenWins = 0;
+    public static int UKIPWins = 0;
+    public static int ChangeUKWins = 0;
+    public static int IndNetWins = 0;
+    public static int IndWins = 0;
     public static void ReadFiles()
     {
         string fileName = @"Votes.txt"; //assigns the text file to a string
@@ -43,6 +52,166 @@ public class Get_Votes
         }
     }
 
+    public static int BPseats = 0;
+    public static int LDseats = 0;
+    public static int LAseats = 0;
+    public static int COseats = 0;
+    public static int GRseats = 0;
+    public static int UKseats = 0;
+    public static int CUseats = 0;
+    public static int INseats = 0;
+    public static int IDseats = 0;
+
+    public static void Readresults()
+    {
+        
+        string results = @"testresults.txt";
+        using (StreamReader reader = new StreamReader(results)) 
+        {
+            string lin;
+            int counte = 0;
+
+            while ((lin = reader.ReadLine()) != null) 
+            { 
+                if (counte == 1)
+                {
+                    foreach(char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            BPseats += 1;
+
+                        }
+                        
+                        
+                    }
+                                        
+                }
+                if (counte == 2)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            LDseats += 1;
+
+                        }
+
+
+                    }
+                    
+                }
+                if (counte == 3)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            LAseats += 1;
+
+                        }
+
+
+                    }
+                    
+                }
+                if (counte == 4)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            COseats += 1;
+
+                        }
+
+
+                    }
+
+                }
+                if (counte == 5)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            GRseats += 1;
+
+                        }
+
+
+                    }
+
+                }
+                if (counte == 6)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            UKseats += 1;
+
+                        }
+
+
+                    }
+
+                }
+                if (counte == 7)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            CUseats += 1;
+
+                        }
+
+
+                    }
+
+                }
+                if (counte == 8)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            INseats += 1;
+
+                        }
+
+
+                    }
+
+                }
+                if (counte == 9)
+                {
+                    foreach (char ch in lin)
+                    {
+                        if (ch == ',')
+                        {
+                            IDseats += 1;
+
+                        }
+
+
+                    }
+
+                }
+
+                if (BPseats == BrexitPartyWins && LDseats == LibDemWins && LAseats == LabourWins && COseats == ConWins && GRseats == GreenWins && UKseats == UKIPWins && CUseats == ChangeUKWins && INseats == IndNetWins && IDseats == IndWins)
+                {
+                    Console.WriteLine("All Confirmed");
+                }
+
+
+                counte += 1;
+            }
+
+        }
+        
+    }
     public class Party
     {
         //fields
@@ -107,18 +276,11 @@ public class Get_Votes
             Console.WriteLine(" ");
 
 
-            // jack's code from here
+
 
             int roundCount = 1;
-            int BrexitPartyWins = 0;
-            int LibDemWins = 0;
-            int LabourWins = 0;
-            int ConWins = 0;
-            int GreenWins = 0;
-            int UKIPWins = 0;
-            int ChangeUKWins = 0;
-            int IndNetWins = 0;
-            int IndWins = 0;
+            
+            
 
             while (roundCount < 6)
             {
@@ -208,6 +370,8 @@ public class Get_Votes
             Console.WriteLine("Change UK Party Wins: " + ChangeUKWins);
             Console.WriteLine("Independent Network Party Wins: " + IndNetWins);
             Console.WriteLine("Independent Party Wins: " + IndWins);
+
+            Readresults();
         }
     }
 }
